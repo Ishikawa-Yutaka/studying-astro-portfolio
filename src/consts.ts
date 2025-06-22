@@ -3,3 +3,4 @@
 
 export const SITE_TITLE = "Ishikawa Yutaka's Portfolio";
 export const SITE_DESCRIPTION = "石川 裕のポートフォリオサイトです";
+export const JOB_TITLE = "Web Developer & UX Designer";

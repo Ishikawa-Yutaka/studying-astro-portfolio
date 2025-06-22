@@ -1,0 +1,25 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+type Props = {
+    title: string
+    description: string
+}
+
+const {title,description} = Astro.props
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Header />
+        <!-- ページの内容が入る -->
+		<slot /> 
+		<Footer />
+	</body>
+</html>
