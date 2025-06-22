@@ -59,7 +59,7 @@ body {
 }
 main {
   width: 720px;
-  max-width: calc(100% - 2em);
+  max-width: 100%;
   margin: auto;
   padding: 3em 1em;
 }
@@ -148,4 +148,17 @@ hr {
   main {
     padding: 1em;
   }
+}
+
+.gradient-text {
+  font-weight: 700;
+  background: linear-gradient(
+    to right top,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: transparent;
+  -webkit-background-clip: text; /* WebKit系ブラウザ用 */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
