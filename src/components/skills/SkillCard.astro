@@ -1,14 +1,17 @@
 ---
 type Props = {
     name: string, 
+    icon: string,
     description: string,
     experience: number,
     level: number,
     intrest: number
 }
-const { name, description, experience, level, intrest } = Astro.props;
+const { name, icon,description, experience, level, intrest } = Astro.props;
 
 const MAX_SCORE = 5;
+
+import { Icon } from 'astro-icon/components'
 
 function calcPercentage(score: number) {
   return (score / MAX_SCORE) * 100
@@ -43,7 +46,9 @@ const interestLevels = {
 
 <div class="skill-card">
     <div class="skill-card-header">
-        <div class="skill-icon"></div>
+        <div class="skill-icon">
+            <Icon name={icon} width={40} height={40} />
+        </div>
         <h3 class="skill-name">{name}</h3>
     </div>
 
