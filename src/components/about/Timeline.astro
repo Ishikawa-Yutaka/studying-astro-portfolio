@@ -14,104 +14,102 @@ const { date, title } = Astro.props;
 </div>
 
 <style>
-    .timeline {
-        position: relative;
+    .timeline
+           {
+        position:
+            relative;
         padding-left: 2rem;
     }
-
-    .timeline::before{
+   
+    .timeline::before {
         content: '';
         position: absolute;
-        top: 0;
         left: 0;
+        top: 0;
+        bottom: 0;
         width: 2px;
-        height: 100%;
         background-color: var(--primary-color);
     }
-    
-    .timeline-item {
-        padding-bottom: 1.5rem;
+   
+    .timeline-item
+           {
+        padding-bottom:
+            1.5rem;
         position: relative;
     }
-
-    .timeline-item::before{
+   
+    .timeline-item::before {
         content: '';
         position: absolute;
-        top: 0.5;
         left: -2.35rem;
+        top: 0.5rem;
         width: 0.8rem;
         height: 0.8rem;
-        background-color: var(--secondary-color);
         border-radius: 50%;
+        background-color: var(--secondary-color);
     }
-
-    .timeline-date{
-        font-weight: bold;
+   
+    .timeline-date
+           {
+        font-weight:
+            bold;
         margin-bottom: 0.5rem;
         color: var(--secondary-color);
     }
-
-    .timeline-content{
-        padding-left: 2rem;
-    }
-
-    h4{
-		font-size: 1.4em;
+   
+    h4 {
+        font-size: 1.4rem;
         margin-bottom: 0.5rem;
-	}
-
-    @media (max-width: 720px) {
-        .timeline{
-            padding-left: 1.5rem;
+    }
+   
+    @media (max-width:
+           720px) {
+    .timeline {
+        padding-left: 1.5rem;
+    }
+   
+    .timeline-item::before {
+        left: -1.85rem;
         }
-
-        .timeline-item::before{
-            left: -1.85rem;
-        }
-
-    /* フェイドインアニメーション */
-    .timeline-item{
+    }
+   
+    /* フェードインアニメーション
+                       */
+           
+   
+     .timeline-item {
         position: relative;
         opacity: 0;
         transform: translateY(40px);
-        transition: opacity 0.7s ease-out,transform 0.7s ease-out;
+        transition:
+        opacity 0.7s ease-out,
+        transform 0.7s ease-out;
     }
-
-    .timeline-item.fade-in{
-        opacity: 1;
+   
+    .timeline-item.fade-in
+     {
+        opacity:
+            1;
         transform: translateY(0);
     }
-
-}
-    </style>
-
-<style is:global>
-    .timeline-content p{
-        margin-bottom: 1rem;
-    }
-
-    .timeline-content ul{
-        margin-left: 1.5rem;
-        list-style-type: disc;
-        padding: 0;
-    }
-
-</style>
+   </style>
 
 <script>
     window.addEventListener('DOMContentLoaded', () => {
         //as NodeListOf<HTMLElement>で型を指定（typescript）
         const timelineItems = document.querySelectorAll('.timeline-item') as NodeListOf<HTMLElement>
-
+        //IntersectionObserverで要素が画面に入った時にfade-inクラスを追加
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if(entry.isIntersecting){
                     entry.target.classList.add('fade-in');
+                    //要素が画面に入ったらobserverでの監視を解除
+                    observer.unobserve(entry.target);
                 }
             });
             { threshold: 0.5 }
         });
-
+        //各要素にobserverを設定
         timelineItems.forEach((item) => {
             observer.observe(item);
         });
