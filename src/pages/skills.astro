@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+import SkillContainer from '../components/skills/SkillContainer.astro'
+---
+
+<Layout title='{SITE_TITLE}' description='{SITE_DESCRIPTION}'>
+
+	<main class="page-container">
+		<h1 class="gradient-text page-title">Skills</h1>
+		<SkillContainer />
+		<p>
+
+		</p>
+	</main>
+</Layout>
+
+<style>
+	p{
+		font-size: 1rem;
+		margin-bottom: 2.5rem;
+	}
+</style>
