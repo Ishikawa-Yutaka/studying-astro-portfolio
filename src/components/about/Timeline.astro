@@ -30,7 +30,7 @@ const { date, title } = Astro.props;
     }
     
     .timeline-item {
-        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
         position: relative;
     }
 
@@ -59,7 +59,31 @@ const { date, title } = Astro.props;
 		font-size: 1.4em;
         margin-bottom: 0.5rem;
 	}
-</style>
+
+    @media (max-width: 720px) {
+        .timeline{
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item::before{
+            left: -1.85rem;
+        }
+
+    /* フェイドインアニメーション */
+    .timeline-item{
+        position: relative;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.7s ease-out,transform 0.7s ease-out;
+    }
+
+    .timeline-item.fade-in{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+    </style>
 
 <style is:global>
     .timeline-content p{
@@ -73,3 +97,23 @@ const { date, title } = Astro.props;
     }
 
 </style>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        //as NodeListOf<HTMLElement>で型を指定（typescript）
+        const timelineItems = document.querySelectorAll('.timeline-item') as NodeListOf<HTMLElement>
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('fade-in');
+                }
+            });
+            { threshold: 0.5 }
+        });
+
+        timelineItems.forEach((item) => {
+            observer.observe(item);
+        });
+    });
+</script>
