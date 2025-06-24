@@ -10,7 +10,7 @@ const myName = '石川 裕 - Ishiikawa Yutaka'
 	<main class="page-container">
 		<h1 class="gradient-text page-title">About</h1>
 		<div class="profile">
-			<img src="../src/assets/blog-placeholder-about.jpg" alt="{myName}" class="profile-image">
+			<img src={`${import.meta.env.BASE_URL}images/blog-placeholder-about.jpg`} alt="{myName}" class="profile-image">
 			<div class="profile-info">
 				<h2 class="profile-name">名前</h2>
 				<p class="job-title">{JOB_TITLE}</p>
@@ -25,15 +25,18 @@ const myName = '石川 裕 - Ishiikawa Yutaka'
 
 		<section class="experience">
 			<h3>経歴</h3>
-			<Timeline date="2024年" title="個人でWebサイト制作"/>
+			<Timeline date="2024年" title="ホームーページ担当して勤務">
 				<p>個人でWebサイト制作を行っている</p>
 			</Timeline>
 
-			<Timeline date="2024年" title="ホームーページ担当して勤務"/>
-				<p>個人でWebサイト制作を行っている</p>
+			<Timeline date="2019年" title="デジタルハリウッドでWebサイト制作を学ぶ">
+				<p>デジタルハリウッドでWebサイト制作を学ぶ</p>
 			</Timeline>
 
-			<Timeline date="2019年" title="デジタルハリウッドでWebサイト制作を学ぶ"/>
+			<Timeline date="2019年" title="デジタルハリウッドでWebサイト制作を学ぶ">
+				<p>デジタルハリウッドでWebサイト制作を学ぶ</p>
+			</Timeline>
+			<Timeline date="2019年" title="デジタルハリウッドでWebサイト制作を学ぶ">
 				<p>デジタルハリウッドでWebサイト制作を学ぶ</p>
 			</Timeline>
 		</section>
