@@ -10,7 +10,7 @@ const isDev = process.env.NODE_ENV === "development";
 
 // https://astro.build/config
 export default defineConfig({
-  site: isDev ? "http://localhost:4323" : "https://your-username.github.io",
+  site: isDev ? "http://localhost:4323" : "https://Ishikawa-Yutaka.github.io",
   base: isDev ? "/" : "/studying-astro-portfolio/",
   integrations: [mdx(), sitemap(), icon()],
 });
